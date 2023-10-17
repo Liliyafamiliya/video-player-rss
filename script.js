@@ -186,9 +186,12 @@ document.addEventListener("mouseup", () => {
 // ========================TOGGLE-MUTE========================
 const toggleMute = () => {
   if (tiktok.volume > 0) {
+    prevVolumeLevel = tiktok.volume;
     tiktok.volume = 0;
+    filledVolume.style.width = "0%";
   } else {
     tiktok.volume = 1;
+    filledVolume.style.width = prevVolumeLevel * 100 + "%";
   }
 };
 
