@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    background-image: url(./assets/pictures/tiktokBg.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    padding-top: 3rem;
+}
+
+.player-container {
+    margin: 0 auto;
+    max-width: 25rem;
+    height: 85vh;
+    border: 5px solid #30e2d7;
+    ;
+    border-radius: 3%;
+    box-shadow: 0px 1px 5px 0px rgba(0, 255, 255, 0.7),
+        1px 2px 14px 0px rgba(0, 255, 255, 0.7),
+        5px 0px 16px 5px rgba(0, 255, 255, 0.7),
+        2px 10px 16px 0px rgba(0, 255, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.tiktok-video-and-center-btns {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.tiktok {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.center-btns {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    top: 45%;
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-play-btn,
+.arrow {
+    cursor: pointer;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.center-play-btn {
+    width: 5rem;
+    filter: invert(180%);
+}
+
+.arrow {
+    width: 3rem;
+}
+
+.arrow-prev {
+    transform: rotate(180deg);
+}
+
+.center-play-btn:active {
+    background: #CF1D28;
+    box-shadow: 0px 1px 2px 0px rgba(255, 0, 0, 0.7),
+        1px 2px 4px 0px rgba(0, 0, 0, 0.7),
+        2px 4px 8px 0px rgba(0, 0, 0, 0.7),
+        2px 4px 16px 0px rgba(0, 0, 0, 0.7);
+}
+
+.arrow:active {
+    background: #30e2d7;
+    box-shadow: 0px 1px 2px 0px rgba(0, 255, 255, 0.7),
+        1px 2px 4px 0px rgba(0, 255, 255, 0.7),
+        2px 4px 8px 0px rgba(0, 255, 255, 0.7),
+        2px 4px 16px 0px rgba(0, 255, 255, 0.7);
+}
+
+/* ========================BOTTOM-CONTROLS======================== */
+.player-controls {
+    width: 100%;
+    background: none;
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+    z-index: 2;
+    opacity: 0;
+}
+
+.play-and-progress,
+.volume-mute-fullscreen {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.play-btn,
+.player-fullscreen {
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 3rem;
+    color: rgb(228, 31, 93);
+}
+
+.sound-control {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 1rem;
+    background-image: url(./assets/pictures/muteOnBtn.svg);
+}
+
+.unmute {
+    background-image: url(./assets/pictures/muteOffBtn.svg);
+}
+
+.progress-container,
+.volume-container {
+    display: flex;
+    background: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-container {
+    height: .5rem;
+    flex-basis: 100%;
+    margin-right: 1rem;
+}
+
+.volume-container {
+    width: 5rem;
+    height: 0.3rem;
+    border-radius: 20%;
+}
+
+.filled-progress,
+.filled-volume {
+    background: rgb(228, 31, 93);
+    position: relative;
+}
+
+.filled-volume {
+    width: 50%;
+}
+
+.filled-progress::after,
+.filled-volume::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: 0;
+    height: .7rem;
+    width: .3rem;
+    border: 1px outset white;
+    border-radius: 20%;
+    background: rgb(219, 37, 94);
+    cursor: pointer;
+}
+
+.filled-volume::after {
+    height: .6rem;
+    top: -4px;
+}
+
+/* ========================FOOTER======================== */
+footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw;
+    width: 100%;
+}
+
+.rss {
+    width: 13vw;
+}
+
+.year {
+    font-size: 1.5vw;
+    color: #fff;
+    text-shadow: 1px 0 1px #000,
+        0 1px 1px #000,
+        -1px 0 1px #000,
+        0 -1px 1px #000;
+}
+
+.github {
+    width: 5vw;
+}
+
+/* ========================ANIMATIONS======================== */
+
+.arrow-prev:hover {
+    transform: rotate(180deg) scale(1.15);
+}
+
+/* .arrow, */
+.center-play-btn,
+.play-btn,
+.sound-control,
+.player-fullscreen,
+.year,
+.github {
+    transition: transform .5s;
+}
+
+/* .arrow:hover, */
+.arrow-next:hover,
+.center-play-btn:hover,
+.year:hover,
+.github:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.play-btn:hover,
+.sound-control:hover,
+.player-fullscreen:hover {
+    transform: scale(1.7);
+}
+
+/* ========================MOBILE======================== */
+@media (max-width: 1300px) {
+
+    .rss,
+    .github {
+        filter: invert(100%);
+    }
+}
+
+@media (max-width: 400px) {
+    .player-container {
+        max-width: 19.5rem;
+    }
+}
